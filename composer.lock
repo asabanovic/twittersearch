@@ -4,8 +4,273 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9439de5e5270c742a58e4fd804f83ed",
+    "content-hash": "cd0695cc7fb6e8f4ce14929d031b46c1",
     "packages": [
+        {
+            "name": "flsouto/htattrs",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/htattrs.git",
+                "reference": "4b67be0b2930b65c0e616f7c133b96b6978f52bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/htattrs/zipball/4b67be0b2930b65c0e616f7c133b96b6978f52bf",
+                "reference": "4b67be0b2930b65c0e616f7c133b96b6978f52bf",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "fabio",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Build html attributes through the ArrayObject API",
+            "keywords": [
+                "html"
+            ],
+            "time": "2016-11-15T19:00:30+00:00"
+        },
+        {
+            "name": "flsouto/htchoice",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/htchoice.git",
+                "reference": "5accda6568b47122e2ef241e435d53a30be08c47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/htchoice/zipball/5accda6568b47122e2ef241e435d53a30be08c47",
+                "reference": "5accda6568b47122e2ef241e435d53a30be08c47",
+                "shasum": ""
+            },
+            "require": {
+                "flsouto/htwidget": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Abstract class for creating widgets based on choice",
+            "keywords": [
+                "Forms",
+                "choices",
+                "fields",
+                "html",
+                "options",
+                "widgets"
+            ],
+            "time": "2017-02-21T11:12:59+00:00"
+        },
+        {
+            "name": "flsouto/htcklist",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/htcklist.git",
+                "reference": "b19772238d85a889b683f7d8a70220f83e53233c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/htcklist/zipball/b19772238d85a889b683f7d8a70220f83e53233c",
+                "reference": "b19772238d85a889b683f7d8a70220f83e53233c",
+                "shasum": ""
+            },
+            "require": {
+                "flsouto/htchoice": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Generates a list of checkboxes for multi selection.",
+            "keywords": [
+                "Forms",
+                "choices",
+                "fields",
+                "html",
+                "multichoice",
+                "options",
+                "widgets"
+            ],
+            "time": "2017-03-20T00:23:11+00:00"
+        },
+        {
+            "name": "flsouto/htfield",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/htfield.git",
+                "reference": "6119bc76a018a9c643125bddf49c68f9c6d381dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/htfield/zipball/6119bc76a018a9c643125bddf49c68f9c6d381dd",
+                "reference": "6119bc76a018a9c643125bddf49c68f9c6d381dd",
+                "shasum": ""
+            },
+            "require": {
+                "flsouto/htattrs": "^1.0",
+                "flsouto/param": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Base class for implementing all kinds of form fields, both widgets and non-widgets",
+            "keywords": [
+                "Forms",
+                "fields",
+                "html"
+            ],
+            "time": "2017-02-18T20:23:29+00:00"
+        },
+        {
+            "name": "flsouto/htwidget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/htwidget.git",
+                "reference": "ba71b80460b75d4300a3dfcd7fbd6e77399c5288"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/htwidget/zipball/ba71b80460b75d4300a3dfcd7fbd6e77399c5288",
+                "reference": "ba71b80460b75d4300a3dfcd7fbd6e77399c5288",
+                "shasum": ""
+            },
+            "require": {
+                "flsouto/htfield": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Abstract class for defining form widget types",
+            "keywords": [
+                "Forms",
+                "fields",
+                "html",
+                "widgets"
+            ],
+            "time": "2017-02-05T00:37:29+00:00"
+        },
+        {
+            "name": "flsouto/param",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/param.git",
+                "reference": "6d2a129826a759bba59b602c93c31b5e9314e31f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/param/zipball/6d2a129826a759bba59b602c93c31b5e9314e31f",
+                "reference": "6d2a129826a759bba59b602c93c31b5e9314e31f",
+                "shasum": ""
+            },
+            "require": {
+                "flsouto/pipe": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "Cool API for validating and filtering any source of input",
+            "keywords": [
+                "Forms",
+                "data",
+                "filtering",
+                "input",
+                "processing",
+                "validation"
+            ],
+            "time": "2017-01-08T20:00:22+00:00"
+        },
+        {
+            "name": "flsouto/pipe",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flsouto/pipe.git",
+                "reference": "9037f75b6e8285254dbd57a7f2e42d0f3b088049"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flsouto/pipe/zipball/9037f75b6e8285254dbd57a7f2e42d0f3b088049",
+                "reference": "9037f75b6e8285254dbd57a7f2e42d0f3b088049",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlSouto\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fabio Souto",
+                    "email": "fabiolimasouto@gmail.com"
+                }
+            ],
+            "description": "apply a chain of filters and validations to input data",
+            "time": "2017-01-08T19:41:34+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.3",

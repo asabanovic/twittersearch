@@ -3,10 +3,8 @@
     "description": "Application Authentication Only - Search Twitter API",
     "type": "library",
     "minimum-stability": "dev",
-    "version": "1.0.0",
     "require": {
-        "guzzlehttp/guzzle": "^6.2",
-        "flsouto/htcklist": "^1.0"
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
     },

@@ -1,0 +1,23 @@
+{
+    "name": "asabanovic/twittersearch",
+    "description": "Application Authentication Only - Search Twitter API",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adnan Sabanovic",
+            "email": "adnanxteam@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TwitterSearch\\" : "src/"
+        }
+    }
+}

@@ -45,6 +45,7 @@ class Twitter
 	/**
 	 * Create HTTP client and obtain bearer token
 	 *
+	 * @param object $client	Your HTTP client (GuzzleHttp require-dev)
 	 * @param string $app_key	Twitter Dev App Key
 	 * @param string $app_secret	Twitter Dev App Secret 
 	 * @return void

@@ -10,12 +10,12 @@ class Twitter
 	/**
 	 * Define GuzzleHttp Client
 	 */
-	protected $client;
+	public $client;
 
 	/**
 	 * Set Twitter API base URI
 	 */
-	public $api_base = 'https://api.twitter.com/';
+	public static $api_base = 'https://api.twitter.com/';
 
 	/**
 	 * App key defined under your dev twitter account
@@ -48,18 +48,17 @@ class Twitter
 	 * @param string $app_key	Twitter Dev App Key
 	 * @param string $app_secret	Twitter Dev App Secret 
 	 * @return void
+	 *
+	 * @throws Exception
 	 */
-	public function __construct($app_key = null, $app_secret = null)
+	public function __construct($client, $app_key = null, $app_secret = null)
 	{
-		
-		$this->client = new \GuzzleHttp\Client();	
-
+		$this->client = $client;	
 		$this->app_key = $app_key;
-
 		$this->app_secret = $app_secret;
 
 		if ($this->app_key == null || $this->app_secret == null) {
-			return false;
+			throw new \Exception('Twitter requires app_key and app_secret in order to make calls to the API');
 		}
 
 		$this->getBearerToken();
@@ -72,32 +71,44 @@ class Twitter
 	 * @param string $query 	'q' type of query
 	 * @param integer $count 	Define a number of search results
 	 * @return void
+	 *
+	 * @throws Exception
 	 */
 	public function searchTweets($query, $count = 10)
 	{	
 		if ($this->bearer_token == null) {
-			return false;
+			throw new \Exception('Incorrect token. You need to obtain correct Bearer token in order to make calls to the API. Check if your API keys are correct.');
 		}
 
-		try { 
+		$this->makeRequest($query, $count);
+	}
 
-			$response = $this->client->request('GET', $this->api_base.'1.1/search/tweets.json', [
+	/**
+	 * Get raw Twitter response
+	 * @param string $query 	'q' type of query
+	 * @param integer $count 	Define a number of search results
+	 * @return object 	
+	 */
+	public function makeRequest($query, $count)
+	{
+
+		try { 
+ 			
+ 			$response = $this->client->request('GET', self::$api_base.'1.1/search/tweets.json', [
 			    'query' => ['q' => $query, 'count' => $count],
 			    'headers' => [
 			        'Authorization' => 'Bearer ' . $this->bearer_token
 			    ]
 			]);
-
+  			
 			$this->setStatusCode($response->getStatusCode());
 
-			$response = json_decode($response->getBody());
-
-			$this->response = $response->statuses;
-
-		} catch (\Exception $e) {
+			$response_body = json_decode($response->getBody());
+ 			$this->response = $response_body->statuses;
+ 
+ 		} catch (\Exception $e) {
 
 			$this->setStatusCode($e->getCode());
-
 			$this->setResponse($e->getMessage());
 
 		}
@@ -113,7 +124,7 @@ class Twitter
 	{	
 		try { 
 
-			$response = $this->client->request('POST', $this->api_base.'oauth2/token', [
+			$response = $this->client->request('POST', self::$api_base.'oauth2/token', [
 			    'query' => ['grant_type' => 'client_credentials'],
 			    'headers' => [
 			        'Authorization' => 'Basic ' . base64_encode($this->app_key.':'.$this->app_secret),
@@ -121,16 +132,13 @@ class Twitter
 			    ]
 			]);
 
-			$this->setStatusCode($response->getStatusCode());
+ 			$this->setStatusCode($response->getStatusCode());
+ 			$response_body = json_decode($response->getBody());
+ 			$this->bearer_token = $this->isBearer($response_body);
 
-			$response = json_decode($response->getBody());
-
-			$this->bearer_token = $this->isBearer($response);
-
-		} catch (\Exception $e) {
+ 		} catch (\Exception $e) {
 
 			$this->setStatusCode($e->getCode());
-
 			$this->setResponse($e->getMessage());
 
 		}
@@ -146,7 +154,7 @@ class Twitter
  	 */
 	public function isBearer($response)
 	{	
-    	if (!isset($response->token_type)) {
+     	if (!isset($response->token_type)) {
     		return false;
     	}
 

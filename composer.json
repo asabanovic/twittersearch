@@ -4,9 +4,10 @@
     "type": "library",
     "minimum-stability": "dev",
     "require": {
-        "guzzlehttp/guzzle": "^6.2"
+        
     },
     "require-dev": {
+        "guzzlehttp/guzzle": "^6.2"
     },
     "license": "MIT",
     "authors": [
